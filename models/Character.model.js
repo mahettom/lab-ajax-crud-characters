@@ -1,10 +1,10 @@
-const {Schema, model, SchemaTypes} = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const characterSchema = new Schema({
-  name: SchemaTypes.String,
-  occupation: SchemaTypes.String,
-  weapon: SchemaTypes.String,
-  cartoon: SchemaTypes.Boolean
+	name: String,
+	occupation: String,
+	weapon: String,
+	cartoon: Boolean,
 })
 
 const Character = model('Character', characterSchema)

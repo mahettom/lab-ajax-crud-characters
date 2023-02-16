@@ -8,22 +8,22 @@ const Character = require('../models/Character.model')
  * ? This route should respond with all the characters
  */
 router.get('/', (req, res, next) => {
-  /**Your code goes here */
+	/**Your code goes here */
 })
 
 /**
- * ? This route should create one character and respond with 
+ * ? This route should create one character and respond with
  * ? the created character
  */
 router.post('/', (req, res, next) => {
-  /**Your code goes here */
+	/**Your code goes here */
 })
 
 /**
  * ? This route should respond with one character
  */
-router.get('/:name', (req, res, next) => {
-  /**Your code goes here */
+router.get('/:id', (req, res, next) => {
+	/**Your code goes here */
 })
 
 /**
@@ -31,7 +31,7 @@ router.get('/:name', (req, res, next) => {
  * ? the updated character
  */
 router.patch('/:id', (req, res, next) => {
-  /**Your code goes here */
+	/**Your code goes here */
 })
 
 /**
@@ -39,8 +39,7 @@ router.patch('/:id', (req, res, next) => {
  * ? error message
  */
 router.delete('/:id', (req, res, next) => {
-  /**Your code goes here */
+	/**Your code goes here */
 })
-
 
 module.exports = router

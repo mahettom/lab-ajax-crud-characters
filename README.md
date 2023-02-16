@@ -113,7 +113,7 @@ Retrieve all the available characters in the API and show them in the applicatio
 Following the same idea as with fetching all, to retrieve a single character's data we need to:
 
 - Create a button (_Fetch one_ in the image above) to, through an input field, get an existing character using it's name.
-- Search that character in the API with _[http://localhost:5000/characters/:name](http://localhost:5000/characters/:name)_
+- Search that character in the API with _[http://localhost:5000/characters/:id](http://localhost:5000/characters/:id)_
 - Get the data and show the character info as a card.
 - Don't forget to show the _id field !
 
