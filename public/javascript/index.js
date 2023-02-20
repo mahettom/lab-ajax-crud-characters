@@ -12,19 +12,7 @@ const myUrl = 'http://localhost:5005/api/'
 
 
 
-// BEFORE THE EVENT LISTENER ———> CREATE THE FUNCTIONS WE WILL NEED LATER
-
-
-// function createCharacter(one) {
-
-
-//   const clone = characterTemplate.content.cloneNode(true)
-
-
-// }
-
-
-// LISTEN FOR THE FETCH-ALL BUTTON AND DISPLAY ALL CHARACTERS
+// LISTEN FOR THE FETCH-ALL BUTTON AND DISPLAY ALL CHARACTERS ———————————————————————————————————————————————————————
 document.getElementById('fetch-all').addEventListener('click', async function (event) {
   try {
 
@@ -34,9 +22,17 @@ document.getElementById('fetch-all').addEventListener('click', async function (e
     for (const character of data) {
       console.log(character);
 
-      //const clone =
+      const clone = template.content.cloneNode('true')
 
-      return character
+      clone.querySelector('.character-id').textContent = `ID: ${character._id}`
+      clone.querySelector('.name').textContent = `Name: ${character.name}`
+      clone.querySelector('.occupation').textContent = `Occupation: ${character.occupation}`
+      clone.querySelector('.cartoon').textContent = `Cartoon: ${character.cartoon}`
+      clone.querySelector('.weapon').textContent = `weapon: ${character.weapon}`
+
+      document.body.append(clone)
+
+      // return character
     }
   } catch (error) {
     console.log(error);
@@ -44,7 +40,31 @@ document.getElementById('fetch-all').addEventListener('click', async function (e
 });
 
 
-document.getElementById('fetch-one').addEventListener('click', function (event) {
+// SEARCH THE CHARACTER WITH THE ID PROVIDE IN THE INPUT FIELD ——————————————————————————————————————————————————————
+document.getElementById('fetch-one').addEventListener('click', async function (event) {
+  event.preventDefault();
+  try {
+
+    const providedInput = document.querySelector("[name=character-name]");
+
+    // GET ON THE ROUTE PREVIOUSLY BUILD, EXTRACT DATA AND PUT IT IN A OBJECT
+    const { data } = await axios.get(`${myUrl}characters/${providedInput.value}`)
+
+    // console.log({ data })
+    const clone = template.content.cloneNode('true')
+
+    clone.querySelector('.character-id').textContent = `ID: ${data._id}`
+    clone.querySelector('.name').textContent = `Name: ${data.name}`
+    clone.querySelector('.occupation').textContent = `Occupation: ${data.occupation}`
+    clone.querySelector('.cartoon').textContent = `Cartoon: ${data.cartoon}`
+    clone.querySelector('.weapon').textContent = `weapon: ${data.weapon}`
+
+    document.body.append(clone)
+
+  } catch (error) {
+    console.log(error)
+  }
+
 
 });
 
